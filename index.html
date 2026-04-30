@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>West Cokelat</title>
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+body { font-family: 'Georgia', serif; }
+
+.hero {
+  background: url('https://source.unsplash.com/1600x900/?luxury,chocolate') center/cover;
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {opacity:0; transform: translateY(30px);}
+  to {opacity:1; transform: translateY(0);}
+}
+</style>
+</head>
+
+<body class="bg-gray-100">
+
+<!-- HERO -->
+<section class="hero text-white text-center py-32">
+  <h1 class="text-5xl font-bold">West Cokelat</h1>
+  <p class="mt-4 text-lg">Cokelat premium yang meleleh di mulut</p>
+  <button onclick="scrollToMenu()" class="mt-6 bg-white text-black px-6 py-3 rounded-lg font-semibold hover:bg-gray-200">
+    Lihat Menu
+  </button>
+</section>
+
+<!-- KEUNGGULAN -->
+<section class="max-w-6xl mx-auto p-6 grid md:grid-cols-3 gap-6 text-center fade-in">
+  <div class="bg-white p-6 rounded-xl shadow">
+    <h3 class="font-semibold text-lg">Premium Quality</h3>
+    <p class="text-gray-600">Menggunakan cokelat berkualitas tinggi</p>
+  </div>
+  <div class="bg-white p-6 rounded-xl shadow">
+    <h3 class="font-semibold text-lg">Fresh & Handmade</h3>
+    <p class="text-gray-600">Dibuat fresh setiap hari</p>
+  </div>
+  <div class="bg-white p-6 rounded-xl shadow">
+    <h3 class="font-semibold text-lg">Fast Order</h3>
+    <p class="text-gray-600">Pesan langsung via WhatsApp</p>
+  </div>
+</section>
+
+<!-- BEST SELLER -->
+<section class="max-w-6xl mx-auto p-6 fade-in">
+  <h2 class="text-2xl font-semibold mb-6 text-center">Best Seller</h2>
+
+  <div class="grid md:grid-cols-3 gap-6">
+
+    <div class="bg-white rounded-xl shadow hover:shadow-xl">
+      <img src="https://source.unsplash.com/400x300/?lava-cake">
+      <div class="p-4">
+        <h3 class="font-semibold">West Choco Lava Cake</h3>
+        <p class="text-sm text-gray-600">Lumer saat dimakan</p>
+        <button onclick="order('Lava Cake')" class="mt-3 w-full bg-[#3e2c23] text-white py-2 rounded">Pesan</button>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-xl shadow hover:shadow-xl">
+      <img src="https://source.unsplash.com/400x300/?brownies">
+      <div class="p-4">
+        <h3>West Brownies</h3>
+        <p class="text-sm text-gray-600">Fudgy & legit</p>
+        <button onclick="order('Brownies')" class="mt-3 w-full bg-[#3e2c23] text-white py-2 rounded">Pesan</button>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-xl shadow hover:shadow-xl">
+      <img src="https://source.unsplash.com/400x300/?chocolate-cake">
+      <div class="p-4">
+        <h3>West Fudge Cake</h3>
+        <p class="text-sm text-gray-600">Creamy & lembut</p>
+        <button onclick="order('Fudge Cake')" class="mt-3 w-full bg-[#3e2c23] text-white py-2 rounded">Pesan</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- MENU -->
+<section id="menu" class="max-w-7xl mx-auto p-6">
+  <h2 class="text-2xl font-semibold text-center mb-8">Menu Lengkap</h2>
+
+  <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+
+    <div class="bg-white rounded-xl shadow">
+      <img src="https://source.unsplash.com/400x300/?cheesecake">
+      <div class="p-4">
+        <h3>Chocolate Cheesecake</h3>
+        <button onclick="order('Cheesecake')" class="mt-3 w-full bg-[#3e2c23] text-white py-2 rounded">Pesan</button>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-xl shadow">
+      <img src="https://source.unsplash.com/400x300/?cookies">
+      <div class="p-4">
+        <h3>Choco Cookies</h3>
+        <button onclick="order('Cookies')" class="mt-3 w-full bg-[#3e2c23] text-white py-2 rounded">Pesan</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- TESTIMONI -->
+<section class="bg-white py-10 mt-10">
+  <h2 class="text-center text-2xl font-semibold mb-6">Testimoni</h2>
+  <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-6">
+
+    <div class="p-4 shadow rounded">
+      <p>"Cokelatnya bener-bener lumer!"</p>
+      <span class="text-sm text-gray-500">- Customer</span>
+    </div>
+
+    <div class="p-4 shadow rounded">
+      <p>"Rasanya premium banget!"</p>
+      <span class="text-sm text-gray-500">- Customer</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- STICKY ORDER -->
+<button onclick="order('Menu favorit')" 
+class="fixed bottom-5 right-5 bg-[#3e2c23] text-white px-6 py-3 rounded-full shadow-lg">
+  Order Sekarang
+</button>
+
+<script>
+function order(menu){
+  let phone = "6288294279275";
+  let text = `Halo, saya ingin pesan ${menu}`;
+  window.open(`https://wa.me/${phone}?text=${encodeURIComponent(text)}`);
+}
+
+function scrollToMenu(){
+  document.getElementById("menu").scrollIntoView({behavior:"smooth"});
+}
+</script>
+
+</body>
+</html>
